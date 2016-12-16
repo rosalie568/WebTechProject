@@ -1,0 +1,39 @@
+--Table for Registration Page
+CREATE TABLE student (
+	firstName					varchar(32),						--no more than 32 characters for first name
+	lastName					varchar(32),						--no more than 32 characters for last name
+	email						varchar(99)		UNIQUE NOT NULL,	--no more than 99 characters for email
+	password					varchar(30)		UNIQUE NOT NULL,	--no more than 30 characters for password
+	phoneNum					varchar(14),						--format is (ddd) ddd-dddd									
+	
+	PRIMARY KEY (email)
+);
+
+--Table to connect student information with their contacts
+CREATE TABLE friendList (
+	email						varchar(99)		UNIQUE NOT NULL,	--email same as email from student table
+	contactEmail				varchar(99)		UNIQUE NOT NULL,	--contact email same from contact table
+	
+	PRIMARY KEY (email, contactEmail)
+);
+
+--Making a game or joining a game
+CREATE TABLE gameName (
+	gameId						int,								--what games they are registered for
+	location					varchar(50),						--location of where game will be played
+	day							varchar(32),						--day the game will be played on
+	time						varchar(10),						--time of game can be 1pm or 1:00 or 1:00pm or 13:00
+	
+	PRIMARY KEY (gameId)
+);
+
+--locates who is playing on which game
+CREATE TABLE gameRegistered (
+	gameId						int,								--what games they are registered for
+	playerFirstName				varchar(32),						--no more than 32 characters for player first name
+	playerLastName				varchar(32),						--no more than 32 characters for player first name
+	playerEmail					varchar(99)		UNIQUE NOT NULL,	--no more than 99 characters for email
+	
+	PRIMARY KEY (gameId)
+
+);	

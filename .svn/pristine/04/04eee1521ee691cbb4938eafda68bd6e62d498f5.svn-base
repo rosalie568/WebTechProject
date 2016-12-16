@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BALL MAJORS</title>
+		<link rel="stylesheet" type="text/css" href="mainStyleSheet.css" />
+		<style>
+			.header{
+			position: absolute;
+			top: calc(70% - 35px);
+			left: calc(50% - 255px);
+			z-index: 5;
+			}
+		</style>
+	</head>
+	
+	<body>
+	  <div class="body">
+		<center>
+		<br><br><br><br><br><br>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.102422986556!2d-86.358092!3d35.846492000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8863f8962b36a831%3A0x501e94d05ab042e3!2sMTSU+Campus+Recreation!5e0!3m2!1sen!2sus!4v1430102535437" width="400" height="300" frameborder="0" style="border:0"></iframe>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3234.387815389269!2d-86.381968!3d35.839493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8863f85e6c318297%3A0x4454a6bd2aaef896!2sPatterson+Park+Community+Center!5e0!3m2!1sen!2sus!4v1430102799565" width="400" height="300" frameborder="0" style="border:0"></iframe>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3221.211196180313!2d-86.78481699999999!3d36.161415!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886466f696174f3b%3A0x5f6daf104d6d9095!2sYMCA+of+Middle+Tennessee!5e0!3m2!1sen!2sus!4v1430102890253" width="400" height="300" frameborder="0" style="border:0"></iframe>
+		<br><br><br><br><br><br>
+		<div class="grad"></div>
+			<div class="header">
+				<div>Select <span>The Place You Wish to Go</span></div>
+			</div>
+		</center>
+	</div>
+	</body>
+</html>

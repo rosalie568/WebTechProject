@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BALL MAJORS</title>
+		<link rel="stylesheet" type="text/css" href="mainStyleSheet.css" />
+	</head>
+	<body>
+
+		<div class="body"></div>
+			<div class="grad"></div>
+			<div class="header">
+				<div>Ball <span>Majors</span></div>
+			</div>
+			<br>
+			<div class="login">
+				<form action="signUp-next.php" method="post">
+					<input type="text" placeholder="First Name" name="firstName" id="firstName" onkeyup="firstnamecheck()"><br>
+					<div class="warning">
+					<p id="demo"></p>
+					</div>
+					<input type="text" placeholder="Last Name" name="lastName" id="lastName" onkeyup="lastnamecheck()"><br>
+					<div class="warning">
+					<p id="demo1"></p>
+					</div>
+					<input type="password" placeholder="Password" name="password" id="password" "><br>
+					
+					<input type="password" placeholder="Confirm your password" name="passwordConf" id="passwordConf" onchange="passwordcheck()"><br>
+					<div class="warning">
+					<p id="demo6"></p>
+					</div>
+					<input type= "text" placeholder="Email address" name="email" id="email" onchange="emailcheck()"><br>	 
+			<div class="warning">
+					<p id="demo4"></p>
+					</div>
+					<input type="text" placeholder="PhoneNumber xxx xxx-xxxx" name="phoneNum" id="phoneNum" onkeyup="phonenumbercheck()"><br>
+						<div class="warning">
+					<p id="demo5"></p>
+					</div>
+					<button type="submit" value="register" name="register" id="register">Register</button>	
+				</form>
+		</div>
+		<script src="ibrahim3.js"></script>
+		<script src="ibrahim3.js"></script>
+<script>
+function firstnamecheck()
+{
+var x = document.getElementById("firstName").value;
+if(!x.match(/^[A-Za-z]*$/)){
+ document.getElementById("demo").innerHTML = "Invaild Input: " + x;
+}
+}
+
+function lastnamecheck()
+{
+var x = document.getElementById("lastName").value;
+if(!x.match(/^[A-Za-z]*$/)){
+ document.getElementById("demo1").innerHTML = "Invaild Input: " + x;
+}
+}
+
+function emailcheck()
+{
+var x = document.getElementById("email").value;
+if(!x.match(/^[A-Za-z0-9._%+-]*@[A-Za-z.-]*[A-Za-z]{2,4}$/)){
+ document.getElementById("demo4").innerHTML = "Invaild Input: " + x;
+}
+}
+
+function phonenumbercheck()
+{
+var x = document.getElementById("phoneNum").value;
+if(!x.match(/^[0-9]{3} [0-9]{3}-[0-9]{4}$/)){
+ document.getElementById("demo5").innerHTML = "Invaild Input: " + x;
+}
+}
+function passwordcheck()
+{
+var x = document.getElementById("password").value;
+var y = document.getElementById("passwordConf").value;
+if(y!=x){
+ document.getElementById("demo6").innerHTML = "Password did not match " 
+}
+}
+</script>
+	</body>
+</html>

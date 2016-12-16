@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title>BALL MAJORS</title>
+		<link rel="stylesheet" type="text/css" href="mainStyleSheet.css" />
+	</head>
+	<body>
+
+	  <div class="body"></div>
+			<div class="grad"></div>
+			<div class="header">
+				<div>Ball <span>Majors</span></div>
+			</div>
+			<br>
+			<div class="login">
+				<form action="index-next.php" method="post">
+					<input type="text" placeholder="Email" name="email" id="email"><br>
+					<input type="password" placeholder="Password" name="password" id="password"><br>
+					
+					<button type="submit" value="submit" name="submit" id="submit">Login</button>	
+				</form>
+				<a href="signUp.html"> <input type="button" name="newAccount" id="newAccount" value="Create New Account "></a>
+				<p>Forgot your password? <a href="passreminder.html">Click here to reset it</a></p>
+			</div>
+
+	</body>
+
+</html>

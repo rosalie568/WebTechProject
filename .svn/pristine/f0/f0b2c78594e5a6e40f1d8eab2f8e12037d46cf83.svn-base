@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+	  <meta charset="UTF-8">
+	  <title>BALL MAJORS</title>
+		<style>
+
+			body{
+				margin: 0;
+				padding: 0;
+				background: #fff;
+
+				color: #fff;
+				font-family: Arial;
+				font-size: 12px;
+			}
+
+			.body{
+				position: absolute;
+				top: -20px;
+				left: -20px;
+				right: -40px;
+				bottom: -40px;
+				width: auto;
+				height: auto;
+				background-image: url(basketball.jpg);
+				background-size: cover;
+				-webkit-filter: blur(2px);
+				
+			}
+
+
+			.header{
+				position: absolute;
+				top: calc(50% - 35px);
+				left: calc(50% - 255px);
+				z-index: 2;
+			}
+
+			.header div{
+				float: left;
+				color: #fff;
+				font-family: 'Exo', sans-serif;
+				font-size: 35px;
+				font-weight: 200;
+			}
+
+			.header div span{
+				color: #5379fa !important;
+			}
+
+			.login{
+				position: absolute;
+				top: calc(50% - 75px);
+				left: calc(50% - 50px);
+				height: 150px;
+				width: 350px;
+				padding: 10px;
+				z-index: 2;
+			}
+
+			.login input[type=text]{
+				width: 250px;
+				height: 30px;
+				background: transparent;
+				border: 1px solid rgba(255,255,255,0.6);
+				border-radius: 2px;
+				color: white;
+				font-family: 'Exo', sans-serif;
+				font-size: 16px;
+				font-weight: 400;
+				padding: 4px;
+			}
+
+			.login input[type=password]{
+				width: 250px;
+				height: 30px;
+				background: transparent;
+				border: 1px solid rgba(255,255,255,0.6);
+				border-radius: 2px;
+				color: #fff;
+				font-family: 'Exo', sans-serif;
+				font-size: 16px;
+				font-weight: 400;
+				padding: 4px;
+				margin-top: 10px;
+			}
+
+			.login button[type=submit]{
+				width: 260px;
+				height: 35px;
+				background: white;
+				border: 1px solid #fff;
+				cursor: pointer;
+				border-radius: 2px;
+				color: #a18d6c;
+				font-family: 'Exo', sans-serif;
+				font-size: 16px;
+				font-weight: 400;
+				padding: 6px;
+				margin-top: 10px;
+			}
+
+
+			.login button[type=submit]:active{
+				opacity:0.9;
+			}
+
+			.login input[type=button]{
+				width: 260px;
+				height: 35px;
+				background: #fff;
+				border: 1px solid #fff;
+				cursor: pointer;
+				border-radius: 2px;
+				color: #a18d6c;
+				font-family: 'Exo', sans-serif;
+				font-size: 16px;
+				font-weight: 400;
+				padding: 6px;
+				margin-top: 10px;
+			}
+
+
+			.login input[type=button]:active{
+				opacity: 0.9;
+			}
+
+			.login input[type=text]:focus{
+				outline: none;
+				border: 1px solid rgba(255,255,255,0.9);
+			}
+
+			.login input[type=password]:focus{
+				outline: none;
+				border: 1px solid rgba(255,255,255,0.9);
+			}
+
+			::-webkit-input-placeholder{
+			   color: rgba(255,255,255,0.8);
+			}
+
+			::-moz-input-placeholder{
+			   color: rgba(255,255,255,0.8);
+			}
+
+		</style>
+	</head>
+	<body>
+		<?php
+		
+			include 'include.php';		//get values for database
+			
+			//get values from signUp.html form
+			$firstName = $_POST["firstName"];
+			$lastName = $_POST["lastName"];
+			$password = $_POST["password"];
+			$pwd2 = $_POST["passwordConf"];
+			$email = $_POST["email"];
+			$phoneNum = $_POST["phoneNum"];	
+
+			$db = mysql_connect($dbhost, $dbuser, $dbpass);		//connect to database
+			
+			//prints message if any connect to mySQL
+			if (!$db) {
+				 echo "Error - Could not connect to MySQL";
+				 exit;
+			}
+			
+			//prints message if cant connect to my user name database
+			$er = mysql_select_db($dbuser); // in your local host
+			if (!$er) {
+			print "Error - Could not select the cars database";
+			exit;
+			}
+			
+			//check to make sure all values are not empty strings except Phone Number
+			if( $firstName != "" && $lastName != "" && $password != "" && $pwd2 != "" && $email != "")
+			{
+				//checks to make sure passwords match
+				if($password == $pwd2)
+				{
+					$checkEmail = mysql_query("SELECT email from student WHERE email = " . $email );		//checks database for multiple emails because of primary key
+					$row = mysql_fetch_array($checkEmail);			//get row value from database
+				
+					if ($row['email'] != $email)		//if emails match then go to invalid email page
+					{
+						header("Location: invalidEmail.html");			//goes back to signUp page
+					}
+					else			//if email don't match insert it to database
+					{
+						//insert values into database
+						$sql="INSERT INTO student (firstName, lastName, password, email, phoneNum) 
+							VALUES ('$firstName', '$lastName', '$password', '$email', '$phoneNum')";
+				
+						mysql_query($sql);			//sends query to database
+					
+						header("Location: first.html");			//goes to first.html page
+					}  
+				}
+				else
+					header("Location: passwordInvaild.html");			//goes to passwordInvalid.html
+			}
+			else		
+			{
+				header("Location: enterValues.html");			//goes to enterValues.html page
+			}
+		?>
+
+	</body>
+</html>

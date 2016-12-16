@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="UTF-8">
+	  <title>BALL MAJORS</title>
+	  <link rel="stylesheet" type="text/css" href="mainStyleSheet.css" />
+	</head>
+	<body>
+		<?php
+		
+			include 'include.php';		//get values for database
+			
+			//get values from signUp.html form
+			$password = $_POST["password"];
+			$email = $_POST["email"];
+
+			$db = mysql_connect($dbhost, $dbuser, $dbpass);		//connect to database
+			
+			//prints message if any connect to mySQL
+			if (!$db) {
+				 echo "Error - Could not connect to MySQL";
+				 exit;
+			}
+			
+			//prints message if cant connect to my user name database
+			$er = mysql_select_db($dbuser); // in your local host
+			if (!$er) {
+			print "Error - Could not select the cars database";
+			exit;
+			}
+			
+			//check to see if values were entered email and password
+			if($password != "" && $email != "")
+			{
+				//check login to match with database information
+				$checkLogin = mysql_query("SELECT * from student WHERE email = " . $email .
+					"AND password = " . $password );
+		
+				$row = mysql_fetch_array($checkLogin);			//get row value from database
+
+				//check if login to website is successful
+				if ($row['email'] == $email && $row['password'] == $password)
+					header("Location: first.html");			//goes to first.html page
+					
+				//fail to login to website
+				else
+					header("Location: failLogin.html");			//goes to failLogin.html page			
+			}
+			else
+				header("Location: failLogin.html");			//goes to failLogin.html page	
+			
+		?>
+
+	</body>
+</html>

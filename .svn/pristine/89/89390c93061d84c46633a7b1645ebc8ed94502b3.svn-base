@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="./jquery.datetimepicker.css"/>
+		<link rel="stylesheet" type="text/css" href="mainStyleSheet.css" />
+	</head>
+	<body>	
+
+		<div class="body"></div>
+		<div class="container">
+		<a href="logOut.php" class="button"><span>Admin </span>Sign Out</a>
+			<div class="grad"></div>
+			
+			<div class="header">
+				<div>Delete <br><span>Game</span></div>
+			</div>
+			<br>
+			<div class="login">
+				<table border>
+					<tr>
+						<th><h2>Id </h2></th>
+						<th><h2>Time </h2></th>
+						<th><h2>Location </h2></th>
+						<th><h2># Players Registered </h2></th>
+						<th><h2>Delete </h2></th>
+					</tr>
+					
+				</table>
+			</div>
+	</body>
+
+</html>
